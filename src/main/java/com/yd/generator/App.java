@@ -30,9 +30,9 @@ public class App {
 				DataSourceConfig  dsConfig  = new DataSourceConfig();
 				dsConfig.setDbType(DbType.MYSQL)  // 设置数据库类型
 						.setDriverName("com.mysql.jdbc.Driver")
-						.setUrl("jdbc:mysql://192.168.0.104:3306/pub_jywydb")
+						.setUrl("jdbc:mysql://192.168.0.105:3306/pub_jywydb")
 						.setUsername("root")
-						.setPassword("root");
+						.setPassword("1234");
 				 
 				//3. 策略配置
 				StrategyConfig stConfig = new StrategyConfig();																									
@@ -54,8 +54,8 @@ public class App {
 		                .setEntityBooleanColumnRemoveIsPrefix(true)//Boolean类型字段是否移除is前缀处理，测试2.X无效果3.X有效果，但是2.x数据库tinyint(1)不会映射成boolen,3.x会映射成boolean
 						.setDbColumnUnderline(true)  // 指定表名 字段名是否使用下划线
 						.setNaming(NamingStrategy.underline_to_camel) // 数据库表映射到实体的命名策略
-//						.setTablePrefix("m_")//表前缀
-						.setInclude("customer_inf");  // 生成的表
+						.setTablePrefix("m_")//表前缀
+						.setInclude("m_technique_img_detail");  // 生成的表
 				
 				//4. 包名策略配置 
 				PackageConfig pkConfig = new PackageConfig();
@@ -63,7 +63,7 @@ public class App {
 						.setMapper("mapper")
 						.setXml("mapper.impl")
 //						.setService("service")    //不设置，会生成默认的
-//						.setServiceImpl("service.impl")
+////					.setServiceImpl("service.impl")
 //						.setController("controller")
 						.setEntity("pojo.dbo");
 				
